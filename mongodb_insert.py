@@ -11,6 +11,8 @@ offersCollection = db['collection']['offers']
 
 data = json.load(open(argv[1]))
 
+offersCollection.delete_many({})
+
 start = time.time()
 
 offersCollection.insert_many(data)

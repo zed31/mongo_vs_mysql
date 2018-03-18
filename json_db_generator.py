@@ -227,4 +227,3 @@ if __name__ == "__main__":
         exit(0)
     nb_entries = int(argv[2])
     main()
-    exit(1)
