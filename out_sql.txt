@@ -1,18 +1,15 @@
-Executing command: SELECT * FROM offer;
-Total duration: 0.018571138381958008
-got: 5001 entries
-Executing command: SELECT * FROM company;
-Total duration: 0.01808619499206543
+Executing command: SELECT * FROM offer INNER JOIN company ON offer.company_fk_id = company.id;
+Total duration: 0.04501605033874512
 got: 5001 entries
 Executing command: SELECT * FROM offer WHERE offer.address LIKE '%u%' AND offer.name LIKE 'o%';
-Total duration: 0.0025179386138916016
+Total duration: 0.002803802490234375
 got: 106 entries
+Executing command: SELECT * FROM offer WHERE offer.address LIKE '%u%' OR offer.name LIKE 'o%';
+Total duration: 0.016089200973510742
+got: 4686 entries
 Executing command: SELECT company.id, company.name FROM company;
-Total duration: 0.00605320930480957
-got: 5001 entries
-Executing command: SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id;
-Total duration: 0.018030166625976562
+Total duration: 0.0076596736907958984
 got: 5001 entries
 Executing command: SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id WHERE company.name LIKE 'a%';
-Total duration: 0.002509593963623047
+Total duration: 0.0025174617767333984
 got: 247 entries

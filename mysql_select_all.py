@@ -7,11 +7,10 @@ import time
 db = MySQLdb.connect("localhost", "root", "lb/n2dcxP3/x", "test")
 
 request_info = [
-    'SELECT * FROM offer;', 
-    'SELECT * FROM company;', 
+    'SELECT * FROM offer INNER JOIN company ON offer.company_fk_id = company.id;',
     'SELECT * FROM offer WHERE offer.address LIKE \'%u%\' AND offer.name LIKE \'o%\';',
+    'SELECT * FROM offer WHERE offer.address LIKE \'%u%\' OR offer.name LIKE \'o%\';',
     'SELECT company.id, company.name FROM company;',
-    'SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id;',
     'SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id WHERE company.name LIKE \'a%\';'
 ]
 

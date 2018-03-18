@@ -1,3 +1,10 @@
-Total duration:  0.00015974044799804688
-Total duration:  2.9802322387695312e-05
-Total duration:  1.239776611328125e-05
+Starting command: find()
+Total duration:  0.0001087188720703125
+Starting command: find({'name' : pattern})
+Total duration:  1.9311904907226562e-05
+Starting command: find({'company.name' : pattern})
+Total duration:  1.1682510375976562e-05
+Starting command: find({'$or' : [ {'company.name' : pattern}, {'name' : pattern} ]})
+Total duration:  1.1205673217773438e-05
+Starting command: find({'$and' : [ {'company.name' : pattern}, {'name' : pattern} ]})
+Total duration:  9.298324584960938e-06
