@@ -9,16 +9,17 @@ db = MySQLdb.connect("localhost", "root", "lb/n2dcxP3/x", "test")
 request_info = [
     'SELECT * FROM offer;', 
     'SELECT * FROM company;', 
-    'SELECT * FROM offer WHERE offer.id < 10;',
+    'SELECT * FROM offer WHERE offer.address LIKE \'%u%\' AND offer.name LIKE \'o%\';',
     'SELECT company.id, company.name FROM company;',
-    'SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id;'
+    'SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id;',
+    'SELECT offer.id, offer.name, company.name FROM offer INNER JOIN company ON offer.company_fk_id = company.id WHERE company.name LIKE \'a%\';'
 ]
 
 def main():
     cursor = db.cursor()
-    start = time.time()
     for item in request_info:
         print("Executing command:", item)
+        start = time.time()
         cursor.execute(item)
         end = time.time()
         print("Total duration:", end - start)
